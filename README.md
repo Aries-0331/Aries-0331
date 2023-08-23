@@ -4,10 +4,10 @@
 ---
 ### 🧐Contribution ###
 
-![syhily](https://github-readme-stats.vercel.app/api/top-langs/?username=syhily&layout=compact&theme=onedark)
+![Aries-0331](https://github-readme-stats.vercel.app/api/top-langs/?username=Aries-0331&layout=compact&theme=onedark)
 
-![syhily](https://github-readme-stats.vercel.app/api?username=syhily&count_private=true&show_icons=true&theme=tokyonight&show_owner=true)
+![Aries-0331](https://github-readme-stats.vercel.app/api?username=Aries-0331&count_private=true&show_icons=true&theme=tokyonight&show_owner=true)
 
-![syhily](https://github-readme-streak-stats.herokuapp.com/?user=syhily&theme=dark)
+![Aries-0331](https://github-readme-streak-stats.herokuapp.com/?user=Aries-0331&theme=dark)
 
-[![syhily](https://activity-graph.herokuapp.com/graph?username=syhily&theme=react-dark&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Aries-0331](https://activity-graph.herokuapp.com/graph?username=Aries-0331&theme=react-dark&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
