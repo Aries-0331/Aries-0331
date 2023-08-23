@@ -6,7 +6,7 @@
 
 ![Aries-0331 Wakatime Stats](https://github-readme-stats.vercel.app/api/wakatime?username=Aries-0331&layout=compact&theme=radical)
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+[![Aries-0331's GitHub stats](https://github-readme-stats.vercel.app/api?username=Aries-0331)](https://github.com/Aries-0331/github-readme-stats)
 ---
 ### 🧐Contribution ###
 
