@@ -1,17 +1,13 @@
-### Hi there 👋
+## Hi there 👋
 
-<!--
-**Aries-0331/Aries-0331** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
 [![trophy](https://github-profile-trophy.vercel.app/?username=Aries-0331)](https://github.com/ryo-ma/github-profile-trophy)
+---
+### 🧐Contribution ###
+
+![syhily](https://github-readme-stats.vercel.app/api/top-langs/?username=syhily&layout=compact&theme=onedark)
+
+![syhily](https://github-readme-stats.vercel.app/api?username=syhily&count_private=true&show_icons=true&theme=tokyonight&show_owner=true)
+
+![syhily](https://github-readme-streak-stats.herokuapp.com/?user=syhily&theme=dark)
+
+[![syhily](https://activity-graph.herokuapp.com/graph?username=syhily&theme=react-dark&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
