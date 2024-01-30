@@ -1,10 +1,6 @@
 ## Hi there 👋
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=Aries-0331)](https://github.com/ryo-ma/github-profile-trophy)
----
-### :memo:Weekly Development ###
-
-![Aries-0331 Wakatime Stats](https://github-readme-stats.vercel.app/api/wakatime?username=Aries-0331&layout=compact&theme=radical)
 
 ---
 ### 🧐Contribution ###
