@@ -11,3 +11,5 @@
 
 ![Aries-0331](https://github-readme-streak-stats.herokuapp.com/?user=Aries-0331&theme=dark)
 
+## Interesting Courses
+<img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF.jpeg" />
