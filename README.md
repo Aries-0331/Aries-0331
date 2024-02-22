@@ -16,5 +16,9 @@
     <td><a href="https://coursera.org/share/3fdc95c842bc9093d453b0cf55f0b224"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~W6L9TWVERJV3/CERTIFICATE_LANDING_PAGE~W6L9TWVERJV3.jpeg" width=auto/></a></td>
     <td><a href="https://coursera.org/share/f9ce2491adc45d7573f125f80e2bcb78"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~MZNDJNWMG5XR/CERTIFICATE_LANDING_PAGE~MZNDJNWMG5XR.jpeg" width=auto/></a></td>
   </tr>
+  <tr>
+    <td><a href="https://coursera.org/share/234d8ae82c7623a8ab596b84500addeb"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~E58NBL2U7UB7/CERTIFICATE_LANDING_PAGE~E58NBL2U7UB7.jpeg" width=auto/></a></td>
+    <td><a href="https://coursera.org/share/295e9da5e022572888319f85ab2e066c"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~XGWHDEHKZJEK/CERTIFICATE_LANDING_PAGE~XGWHDEHKZJEK.jpeg" width=auto/></a></td>
+  </tr>
   <!-- 更多的行 -->
 </table>
