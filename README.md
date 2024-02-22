@@ -12,5 +12,5 @@
 ![Aries-0331](https://github-readme-streak-stats.herokuapp.com/?user=Aries-0331&theme=dark)
 
 ## Interesting Courses
-<a href="https://coursera.org/share/84a253944b6c0ccdb80438d4dc98d618"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF.jpeg" />
+<a href="https://coursera.org/share/84a253944b6c0ccdb80438d4dc98d618"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF/CERTIFICATE_LANDING_PAGE~EAGGFXVS3QCF.jpeg" width=100px/>
 </a>
