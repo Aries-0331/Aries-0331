@@ -1,7 +1,8 @@
 <h1 align="center">Hi 👋, I'm Aries.</h1>
 <h3 align="center">A passionate developer from Beijing</h3>
 
-- 🌱 I have been engaged in embedded software development for the past five years, and now I am obsessed with **Front-end technology**.
+- 🌱 In the first five years of my programming career, I specialized in embedded software development with a focus on applied cryptography.
+- 🔥 Now, I'm deeply fascinated with front-end technologies.
 
 - 📝 I sometimes write articles on [urchinzhou.com](urchinzhou.com)
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=aries-0331&title!=Reviews" alt="aries-0331" /></a> </p>
