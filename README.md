@@ -5,7 +5,7 @@
 - 🔥 Now, I'm deeply fascinated with front-end technologies.
 
 - 📝 I sometimes write articles on [urchinzhou.com](urchinzhou.com)
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=aries-0331&title!=Reviews" alt="aries-0331" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=aries-0331&title=MultiLanguage,Commits,Repositories,Experience,Followers,Issues,PullRequest" alt="aries-0331" /></a> </p>
 
 <p align="left">
 </p>
