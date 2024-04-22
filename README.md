@@ -4,12 +4,10 @@
 - 🔥 Now, I'm deeply fascinated with front-end technologies.
 
 - 📝 I sometimes write articles on [urchinzhou.com](urchinzhou.com)
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=aries-0331&title=MultiLanguage,Commits,Repositories,Experience" alt="aries-0331" /></a> </p>
+<p></p>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
 
-<p align="left">
-</p>
-
-<h3 align="left">Languages and Tools:</h3>
+<h3 align="left">Languages and Tools</h3>
 <p align="left"> 
   
   <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
@@ -30,13 +28,7 @@
   <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> 
 </p>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=aries-0331&show_icons=true&locale=en" alt="aries-0331" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=aries-0331&" alt="aries-0331" /></p>
-
-## Interesting Courses I Completed on Coursera
+<h3> Interesting Courses I Completed on Coursera</h3>
 
 <table>
   <tr>
