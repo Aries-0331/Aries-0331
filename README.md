@@ -1,5 +1,4 @@
-<h1 align="center">Hi 👋, I'm Aries.</h1>
-<h3 align="center">A passionate developer from Beijing</h3>
+![Hi, I'm Aries](./banner.png)
 
 - 🌱 In the first five years of my programming career, I specialized in embedded software development with a focus on applied cryptography.
 - 🔥 Now, I'm deeply fascinated with front-end technologies.
@@ -37,8 +36,8 @@
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=aries-0331&" alt="aries-0331" /></p>
 
-
 ## Interesting Courses I Completed on Coursera
+
 <table>
   <tr>
     <td><a href="https://coursera.org/share/2b9a416199f0277132871654f471ca40"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~UMWGLMHRTWBU/CERTIFICATE_LANDING_PAGE~UMWGLMHRTWBU.jpeg" width=auto/></a></td>
