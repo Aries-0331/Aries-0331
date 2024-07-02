@@ -3,7 +3,7 @@
 - 🌱 The cusp of creativity and innovation has always fascinated me and I've never been afraid to just jump in and give it a go. I've been coding since the day I first owned my laptop.
 - 🔥 Now, I'm deeply fascinated with front-end technologies, especially Next.js, Tailwind and Framer Motion.
 - 🏗️ I'm building my [portfolio](https://aries-portfolio.vercel.app/), it's clean and elegant, maybe I would make it more fancy one day.
-- 📝 I sometimes write articles on [urchinzhou.com](https://urchinzhou.com)
+- 📝 I sometimes write articles at [here](https://urchinzhou.com)
 <p></p>
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
 
