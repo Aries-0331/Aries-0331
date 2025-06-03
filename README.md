@@ -50,6 +50,19 @@
   <tr>
     <td><a href="https://coursera.org/share/234d8ae82c7623a8ab596b84500addeb"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~E58NBL2U7UB7/CERTIFICATE_LANDING_PAGE~E58NBL2U7UB7.jpeg" width=auto/></a></td>
     <td><a href="https://coursera.org/share/295e9da5e022572888319f85ab2e066c"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~XGWHDEHKZJEK/CERTIFICATE_LANDING_PAGE~XGWHDEHKZJEK.jpeg" width=auto/></a></td>
+    <td><a href="https://coursera.org/share/d10434e82cce41ab47a0155e800736b5"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~V48G40OBNK5J/CERTIFICATE_LANDING_PAGE~V48G40OBNK5J.jpeg" width=auto/></a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://coursera.org/share/8a4f4a6b6a85880c14d472eacaab811e">
+        <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~9BMF2XS75D9R/CERTIFICATE_LANDING_PAGE~9BMF2XS75D9R.jpeg" width=auto/>
+      </a>
+    </td>
+    <td>
+      <a href="https://coursera.org/share/67fad32f380d3a5e32145d2bdce5ab7e">
+        <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~STXPB1BHZ10P/CERTIFICATE_LANDING_PAGE~STXPB1BHZ10P.jpeg" width=auto/>
+      </a>
+    </td>
   </tr>
   <!-- 更多的行 -->
 </table>
