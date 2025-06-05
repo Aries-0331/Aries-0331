@@ -1,13 +1,15 @@
-![Hi, I'm Aries](./banner.png)
+🌱 The cusp of creativity and innovation has always fascinated me and I've never been afraid to just jump in and give it a go.
 
-- 🌱 The cusp of creativity and innovation has always fascinated me and I've never been afraid to just jump in and give it a go. I've been coding since the day I first owned my laptop.
-- 🔥 Now, I'm deeply fascinated with front-end technologies, especially Next.js, Tailwind and Framer Motion.
-- 🏗️ I'm building my [portfolio](https://aries-portfolio.vercel.app/), it's clean and elegant, maybe I would make it more fancy one day.
-- 📝 I sometimes write articles at [here](https://arieszhou.xyz)
-<p></p>
+🔥 Now, I'm deeply fascinated with web technologies, especially MERN.
+
+🏗️ I'm building my [portfolio](https://aries-portfolio.vercel.app/), it's clean and elegant, maybe I would make it more fancy one day.
+
+📝 I sometimes write articles at [here](https://arieszhou.xyz)
+
+<h3 align="left">Languages</h3>
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
 
-<h3 align="left">Languages | Libraries | Frameworks ...</h3>
+<h3 align="left">Tools</h3>
 <p align="left"> 
   
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="html" width="40" />
@@ -28,7 +30,7 @@
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
 </p>
 
-<h3> Certificates on Coursera</h3>
+<h3>Achievement</h3>
 
 <table>
   <tr>
