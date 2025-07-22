@@ -19,7 +19,7 @@
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
 </span>
 
-<h3>Achievement</h3>
+<h3>Some courses</h3>
 
 <table>
   <tr>
