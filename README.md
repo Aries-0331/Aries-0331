@@ -1,34 +1,23 @@
-🌱 The cusp of creativity and innovation has always fascinated me and I've never been afraid to just jump in and give it a go.
+### 👋 Hi! It's Aries.
+<img align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
 
-🔥 Now, I'm deeply fascinated with web technologies, especially MERN.
+🌱 A self-taught developer in China.
 
-🏗️ I'm building my [portfolio](https://aries-portfolio.vercel.app/), it's clean and elegant, maybe I would make it more fancy one day.
+🔥 Enjoy coding, game, anime, badminton, and cat.
 
-📝 I sometimes write articles at [here](https://arieszhou.xyz)
+🏗️ Mainly focus on web technologies, such as MERN.
 
-<h3 align="left">Languages</h3>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
+👀 Be interested with AI and 3D effects, keep leaning...
 
-<h3 align="left">Tools</h3>
-<p align="left"> 
-  
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="html" width="40" />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" alt="css" />
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/>
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/>
-
+<span>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" alt="next.js" width="40" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="tailwind" width="40" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg" width="40" alt="framermotion" />
-<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/d3js/d3js-original.svg" alt="d3js" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
-<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
-</p>
+</span>
 
 <h3>Achievement</h3>
 
