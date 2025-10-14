@@ -1,13 +1,11 @@
 ### 👋 Hi! It's Aries.
 <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=aries-0331&hide=html&show_icons=true&locale=en&layout=compact" alt="aries-0331" />
 
-🌱 A self-taught developer in China.
+🌱 A developer in China.
 
 🔥 Enjoy coding, game, anime, badminton, and cat.
 
-🏗️ Mainly focus on web technologies, such as MERN.
-
-👀 Be interested with AI and 3D effects, keep leaning...
+👀 Be interested with Web, AI and 3D effects, keep leaning...
 
 <span>
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
