@@ -17,8 +17,6 @@
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
 </span>
 
-<h3>Some courses</h3>
-
 <table>
   <tr>
     <td><a href="https://coursera.org/share/2b9a416199f0277132871654f471ca40"><img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~UMWGLMHRTWBU/CERTIFICATE_LANDING_PAGE~UMWGLMHRTWBU.jpeg" width=auto/></a></td>
