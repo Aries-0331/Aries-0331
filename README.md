@@ -11,18 +11,20 @@ Right now, I'm exploring:
 I believe good software should be simple, useful, and calm.
 
 <!-- PROFILE_ACTIVITY:START -->
-<table width="100%" cellspacing="0" cellpadding="0">
-  <tr>
-    <th width="50%" align="left">Latest Releases</th>
-    <th width="50%" align="left">Recent Posts</th>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
+<div align="center">
+  <table width="100%" cellspacing="0" cellpadding="0" style="max-width: 1080px; table-layout: fixed;">
+    <tr>
+      <th width="50%" align="left">Latest Releases</th>
+      <th width="50%" align="left">Recent Posts</th>
+    </tr>
+    <tr>
+      <td width="50%" valign="top" style="word-break: break-word;">
 No releases found yet.
-    </td>
-    <td width="50%" valign="top">
+      </td>
+      <td width="50%" valign="top" style="word-break: break-word;">
 No posts found yet.
-    </td>
-  </tr>
-</table>
+      </td>
+    </tr>
+  </table>
+</div>
 <!-- PROFILE_ACTIVITY:END -->

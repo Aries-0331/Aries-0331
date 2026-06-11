@@ -171,20 +171,22 @@ function formatDate(value) {
 
 function renderBlock(releases, posts) {
   return `${START_MARKER}
-<table width="100%" cellspacing="0" cellpadding="0">
-  <tr>
-    <th width="50%" align="left">Latest Releases</th>
-    <th width="50%" align="left">Recent Posts</th>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
+<div align="center">
+  <table width="100%" cellspacing="0" cellpadding="0" style="max-width: 1080px; table-layout: fixed;">
+    <tr>
+      <th width="50%" align="left">Latest Releases</th>
+      <th width="50%" align="left">Recent Posts</th>
+    </tr>
+    <tr>
+      <td width="50%" valign="top" style="word-break: break-word;">
 ${renderList(releases, "No releases found yet.")}
-    </td>
-    <td width="50%" valign="top">
+      </td>
+      <td width="50%" valign="top" style="word-break: break-word;">
 ${renderList(posts, "No posts found yet.")}
-    </td>
-  </tr>
-</table>
+      </td>
+    </tr>
+  </table>
+</div>
 ${END_MARKER}`;
 }
 
@@ -196,7 +198,7 @@ function renderList(items, emptyLabel = "No items found yet.") {
   const lines = items.map((item) => {
     const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
     const title = truncateMiddle(item.title, config.titleMaxLength);
-    return `• [${escapeMarkdown(title)}](${escapeMarkdownUrl(item.url)})${suffix}`;
+    return `• <a href="${escapeHtml(item.url)}">${escapeHtml(title)}</a>${suffix}`;
   });
 
   return lines.join("<br>");
@@ -215,14 +217,6 @@ function truncateMiddle(value, maxLength) {
   const edgeLength = Math.floor((maxLength - 3) / 2);
   const headLength = maxLength - 3 - edgeLength;
   return `${text.slice(0, headLength)}...${text.slice(text.length - edgeLength)}`;
-}
-
-function escapeMarkdown(value) {
-  return String(value).replace(/([\\[\]])/g, "\\$1");
-}
-
-function escapeMarkdownUrl(value) {
-  return String(value).replace(/\)/g, "%29");
 }
 
 function escapeHtml(value) {
