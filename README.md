@@ -1,7 +1,12 @@
-### Hey! It's Aries.
+### Hi there, I'm Aries.
 
-A developer in China.
+I'm a software engineer building small tools around developer productivity, browser extensions, AI workflows, and personal knowledge management.
 
-Enjoy coding, game, anime and badminton.
+Right now, I'm exploring:
 
-Feeding two cats and one human baby.
+- AI-assisted development workflows
+- Browser extensions for reading and saving web content
+- Lightweight knowledge tools for individuals and small teams
+
+I believe good software should be simple, useful, and calm.
+
