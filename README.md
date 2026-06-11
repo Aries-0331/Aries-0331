@@ -10,3 +10,19 @@ Right now, I'm exploring:
 
 I believe good software should be simple, useful, and calm.
 
+<!-- PROFILE_ACTIVITY:START -->
+<table width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="50%" align="left">Latest Releases</th>
+    <th width="50%" align="left">Recent Posts</th>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+No releases found yet.
+    </td>
+    <td width="50%" valign="top">
+No posts found yet.
+    </td>
+  </tr>
+</table>
+<!-- PROFILE_ACTIVITY:END -->
