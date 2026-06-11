@@ -1,4 +1,4 @@
-### Hi there, I'm Aries.
+### Hi there, It's Aries.
 
 I'm a software engineer building small tools around developer productivity, browser extensions, AI workflows, and personal knowledge management.
 
