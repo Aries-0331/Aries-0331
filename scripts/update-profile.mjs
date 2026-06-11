@@ -171,22 +171,20 @@ function formatDate(value) {
 
 function renderBlock(releases, posts) {
   return `${START_MARKER}
-<div align="center">
-  <table width="100%" cellspacing="0" cellpadding="0" style="max-width: 1080px; table-layout: fixed;">
-    <tr>
-      <th width="50%" align="left">Latest Releases</th>
-      <th width="50%" align="left">Recent Posts</th>
-    </tr>
-    <tr>
-      <td width="50%" valign="top" style="word-break: break-word;">
+<table width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+  <tr>
+    <th width="50%" align="left">Latest Releases</th>
+    <th width="50%" align="left">Recent Posts</th>
+  </tr>
+  <tr>
+    <td width="50%" valign="top" style="word-break: break-word;">
 ${renderList(releases, "No releases found yet.")}
-      </td>
-      <td width="50%" valign="top" style="word-break: break-word;">
+    </td>
+    <td width="50%" valign="top" style="word-break: break-word;">
 ${renderList(posts, "No posts found yet.")}
-      </td>
-    </tr>
-  </table>
-</div>
+    </td>
+  </tr>
+</table>
 ${END_MARKER}`;
 }
 
