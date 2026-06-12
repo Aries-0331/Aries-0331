@@ -8,7 +8,7 @@ I believe good software should be simple, useful, and calm.
 
 I believe less is more and fast is slow.
 
-Fell free to get in touch. **Sitting too long hurts. Time to get moving.**
+Feel free to get in touch. **Sitting too long hurts. Time to get moving.**
 
 
 <!-- PROFILE_ACTIVITY:START -->
