@@ -10,7 +10,7 @@ const END_MARKER = "<!-- PROFILE_ACTIVITY:END -->";
 
 const config = {
   releaseRepos: parseReleaseRepos(
-    process.env.RELEASE_REPOS || "Aries-0331/x-toc,Aries-0331/bookmarkassistant",
+    process.env.RELEASE_REPOS || "Aries-0331/x-toc,Aries-0331/bookmark-assistant",
   ),
   releaseLimit: Number(process.env.RELEASE_LIMIT || 6),
   blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.cn/rss.xml",
