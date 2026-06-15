@@ -10,7 +10,8 @@ const END_MARKER = "<!-- PROFILE_ACTIVITY:END -->";
 
 const config = {
   releaseRepos: parseReleaseRepos(
-    process.env.RELEASE_REPOS || "Aries-0331/x-toc,Aries-0331/bookmark-assistant",
+    process.env.RELEASE_REPOS ||
+      "Aries-0331/x-toc,Aries-0331/bookmark-assistant"
   ),
   blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.cn/rss.xml",
   postLimit: Number(process.env.POST_LIMIT || 6),
@@ -64,14 +65,20 @@ async function getReleases(repos, githubApiBaseUrl) {
       }
 
       if (!response.ok) {
-        throw new Error(`GitHub releases request failed for ${owner}/${repo}: ${response.status}`);
+        throw new Error(
+          `GitHub releases request failed for ${owner}/${repo}: ${response.status}`
+        );
       }
 
       const releases = await response.json();
 
       const latestRelease = releases
         .filter((release) => !release.draft)
-        .sort((a, b) => new Date(b.published_at || b.created_at) - new Date(a.published_at || a.created_at))[0];
+        .sort(
+          (a, b) =>
+            new Date(b.published_at || b.created_at) -
+            new Date(a.published_at || a.created_at)
+        )[0];
 
       if (!latestRelease) {
         return null;
@@ -80,21 +87,24 @@ async function getReleases(repos, githubApiBaseUrl) {
       return {
         title: `${repo} ${latestRelease.name || latestRelease.tag_name}`,
         url: latestRelease.html_url,
-        date: formatDate(latestRelease.published_at || latestRelease.created_at),
+        date: formatDate(
+          latestRelease.published_at || latestRelease.created_at
+        ),
         sortDate: latestRelease.published_at || latestRelease.created_at,
       };
-    }),
+    })
   );
 
   return releases
     .filter(Boolean)
-    .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate))
+    .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate));
 }
 
 async function getPosts(feedUrl, limit) {
   const response = await fetch(feedUrl, {
     headers: {
-      Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml",
+      Accept:
+        "application/rss+xml, application/atom+xml, application/xml, text/xml",
       "User-Agent": "Aries-0331-profile-updater",
     },
   });
@@ -104,7 +114,10 @@ async function getPosts(feedUrl, limit) {
   }
 
   const xml = await response.text();
-  const entries = matchAll(xml, /<item\b[\s\S]*?<\/item>|<entry\b[\s\S]*?<\/entry>/gi);
+  const entries = matchAll(
+    xml,
+    /<item\b[\s\S]*?<\/item>|<entry\b[\s\S]*?<\/entry>/gi
+  );
 
   return entries
     .map((entry) => {
@@ -137,16 +150,24 @@ function matchAll(value, pattern) {
 }
 
 function textContent(xml, tag) {
-  const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  const match = xml.match(
+    new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i")
+  );
   if (!match) {
     return "";
   }
 
-  return decodeXml(match[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").replace(/<[^>]+>/g, "")).trim();
+  return decodeXml(
+    match[1]
+      .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
+      .replace(/<[^>]+>/g, "")
+  ).trim();
 }
 
 function atomLink(xml) {
-  const alternate = xml.match(/<link[^>]+rel=["']alternate["'][^>]+href=["']([^"']+)["'][^>]*>/i);
+  const alternate = xml.match(
+    /<link[^>]+rel=["']alternate["'][^>]+href=["']([^"']+)["'][^>]*>/i
+  );
   const anyLink = xml.match(/<link[^>]+href=["']([^"']+)["'][^>]*>/i);
   return decodeXml((alternate || anyLink || [])[1] || "");
 }
@@ -177,14 +198,14 @@ function renderBlock(releases, posts) {
   return `${START_MARKER}
 <table width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
   <tr>
-    <th width="50%" align="left">Latest Releases</th>
-    <th width="50%" align="left">Recent Posts</th>
+    <th width="600px" align="left">Latest Releases</th>
+    <th width="600px" align="left">Recent Posts</th>
   </tr>
   <tr>
-    <td width="50%" valign="top" style="word-break: break-word;">
+    <td valign="top" style="word-break: break-word;">
 ${renderList(releases, "No releases found yet.")}
     </td>
-    <td width="50%" valign="top" style="word-break: break-word;">
+    <td valign="top" style="word-break: break-word;">
 ${renderList(posts, "No posts found yet.")}
     </td>
   </tr>
@@ -200,7 +221,9 @@ function renderList(items, emptyLabel = "No items found yet.") {
   const lines = items.map((item) => {
     const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
     const title = truncateMiddle(item.title, config.titleMaxLength);
-    return `• <a href="${escapeHtml(item.url)}">${escapeHtml(title)}</a>${suffix}`;
+    return `• <a href="${escapeHtml(item.url)}">${escapeHtml(
+      title
+    )}</a>${suffix}`;
   });
 
   return lines.join("<br>");
@@ -208,7 +231,11 @@ function renderList(items, emptyLabel = "No items found yet.") {
 
 function truncateMiddle(value, maxLength) {
   const text = String(value).trim();
-  if (!Number.isFinite(maxLength) || maxLength <= 0 || text.length <= maxLength) {
+  if (
+    !Number.isFinite(maxLength) ||
+    maxLength <= 0 ||
+    text.length <= maxLength
+  ) {
     return text;
   }
 
@@ -218,7 +245,9 @@ function truncateMiddle(value, maxLength) {
 
   const edgeLength = Math.floor((maxLength - 3) / 2);
   const headLength = maxLength - 3 - edgeLength;
-  return `${text.slice(0, headLength)}...${text.slice(text.length - edgeLength)}`;
+  return `${text.slice(0, headLength)}...${text.slice(
+    text.length - edgeLength
+  )}`;
 }
 
 function escapeHtml(value) {
@@ -237,5 +266,7 @@ function replaceBlock(readme, block) {
     return `${readme.trimEnd()}\n\n${block}\n`;
   }
 
-  return `${readme.slice(0, start)}${block}${readme.slice(end + END_MARKER.length)}`;
+  return `${readme.slice(0, start)}${block}${readme.slice(
+    end + END_MARKER.length
+  )}`;
 }
