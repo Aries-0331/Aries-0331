@@ -74,11 +74,7 @@ async function getReleases(repos, githubApiBaseUrl) {
 
       const latestRelease = releases
         .filter((release) => !release.draft)
-        .sort(
-          (a, b) =>
-            new Date(b.published_at || b.created_at) -
-            new Date(a.published_at || a.created_at)
-        )[0];
+        .sort(compareReleases)[0];
 
       if (!latestRelease) {
         return null;
@@ -192,6 +188,56 @@ function formatDate(value) {
   }
 
   return date.toISOString().slice(0, 10);
+}
+
+function compareReleases(a, b) {
+  const versionOrder = compareSemver(releaseVersion(b), releaseVersion(a));
+
+  if (versionOrder !== 0) {
+    return versionOrder;
+  }
+
+  return (
+    new Date(b.published_at || b.created_at) -
+    new Date(a.published_at || a.created_at)
+  );
+}
+
+function releaseVersion(release) {
+  return parseSemver(release.tag_name) || parseSemver(release.name);
+}
+
+function parseSemver(value) {
+  const match = String(value || "").match(
+    /^v?(\d+)\.(\d+)\.(\d+)(?:[-+].*)?$/i
+  );
+  if (!match) {
+    return null;
+  }
+
+  return match.slice(1).map(Number);
+}
+
+function compareSemver(a, b) {
+  if (!a && !b) {
+    return 0;
+  }
+
+  if (!a) {
+    return -1;
+  }
+
+  if (!b) {
+    return 1;
+  }
+
+  for (let index = 0; index < 3; index += 1) {
+    if (a[index] !== b[index]) {
+      return a[index] - b[index];
+    }
+  }
+
+  return 0;
 }
 
 function renderBlock(releases, posts) {
