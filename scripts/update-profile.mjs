@@ -12,7 +12,6 @@ const config = {
   releaseRepos: parseReleaseRepos(
     process.env.RELEASE_REPOS || "Aries-0331/x-toc,Aries-0331/bookmark-assistant",
   ),
-  releaseLimit: Number(process.env.RELEASE_LIMIT || 6),
   blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.cn/rss.xml",
   postLimit: Number(process.env.POST_LIMIT || 6),
   titleMaxLength: Number(process.env.TITLE_MAX_LENGTH || 38),
@@ -22,7 +21,7 @@ const config = {
 const token = process.env.GITHUB_TOKEN;
 
 const [releases, posts] = await Promise.all([
-  getReleases(config.releaseRepos, config.releaseLimit, config.githubApiBaseUrl),
+  getReleases(config.releaseRepos, config.githubApiBaseUrl),
   getPosts(config.blogFeedUrl, config.postLimit),
 ]);
 
@@ -48,10 +47,10 @@ function parseReleaseRepos(value) {
     });
 }
 
-async function getReleases(repos, limit, githubApiBaseUrl) {
-  const lists = await Promise.all(
+async function getReleases(repos, githubApiBaseUrl) {
+  const releases = await Promise.all(
     repos.map(async ({ owner, repo }) => {
-      const url = `${githubApiBaseUrl}/repos/${owner}/${repo}/releases?per_page=${limit}`;
+      const url = `${githubApiBaseUrl}/repos/${owner}/${repo}/releases?per_page=10`;
       const response = await fetch(url, {
         headers: {
           Accept: "application/vnd.github+json",
@@ -70,21 +69,26 @@ async function getReleases(repos, limit, githubApiBaseUrl) {
 
       const releases = await response.json();
 
-      return releases
+      const latestRelease = releases
         .filter((release) => !release.draft)
-        .map((release) => ({
-          title: `${repo} ${release.name || release.tag_name}`,
-          url: release.html_url,
-          date: formatDate(release.published_at || release.created_at),
-          sortDate: release.published_at || release.created_at,
-        }));
+        .sort((a, b) => new Date(b.published_at || b.created_at) - new Date(a.published_at || a.created_at))[0];
+
+      if (!latestRelease) {
+        return null;
+      }
+
+      return {
+        title: `${repo} ${latestRelease.name || latestRelease.tag_name}`,
+        url: latestRelease.html_url,
+        date: formatDate(latestRelease.published_at || latestRelease.created_at),
+        sortDate: latestRelease.published_at || latestRelease.created_at,
+      };
     }),
   );
 
-  return lists
-    .flat()
+  return releases
+    .filter(Boolean)
     .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate))
-    .slice(0, limit);
 }
 
 async function getPosts(feedUrl, limit) {
