@@ -451,7 +451,23 @@ function escapeHtml(value) {
 }
 
 function cleanText(value) {
-  return String(value || "").replace(/\s+/g, " ").trim();
+  return sanitizePublicText(String(value || "").replace(/\s+/g, " ").trim());
+}
+
+function sanitizePublicText(value) {
+  return value
+    .replace(/\bhttps?:\/\/\S+/gi, "[redacted-url]")
+    .replace(/\b(?:ssh:\/\/|git@)\S+/gi, "[redacted-url]")
+    .replace(
+      /\b(?:secret|token|password|api[_-]?key|authorization)\s*[:=]\s*\S+/gi,
+      "[redacted-secret]"
+    )
+    .replace(
+      /\b(?:artifact|log|logs|workspace|database|page)[_-]?(?:url|path|id)?\s*[:=]\s*\S+/gi,
+      "[redacted-detail]"
+    )
+    .replace(/\b[0-9a-f]{7,40}\b/gi, "[redacted-sha]")
+    .replace(/(?:\/[\w.-]+){2,}/g, "[redacted-path]");
 }
 
 function replaceBlock(readme, block) {
