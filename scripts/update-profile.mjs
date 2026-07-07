@@ -21,13 +21,28 @@ const config = {
 
 const token = process.env.GITHUB_TOKEN;
 
-const [releases, posts] = await Promise.all([
+const readme = await readFile(README_PATH, "utf8");
+const previousContent = extractPreviousContent(readme);
+
+const [releaseResult, postResult] = await Promise.allSettled([
   getReleases(config.releaseRepos, config.githubApiBaseUrl),
   getPosts(config.blogFeedUrl, config.postLimit),
 ]);
 
-const block = renderBlock(releases, posts);
-const readme = await readFile(README_PATH, "utf8");
+const releaseContent = contentFromResult(
+  "releases",
+  releaseResult,
+  "No releases found yet.",
+  previousContent.releases
+);
+const postContent = contentFromResult(
+  "posts",
+  postResult,
+  "No posts found yet.",
+  previousContent.posts
+);
+
+const block = renderBlock(releaseContent, postContent);
 const nextReadme = replaceBlock(readme, block);
 
 if (nextReadme !== readme) {
@@ -240,7 +255,45 @@ function compareSemver(a, b) {
   return 0;
 }
 
-function renderBlock(releases, posts) {
+function contentFromResult(label, result, emptyLabel, fallbackContent) {
+  if (result.status === "fulfilled") {
+    return renderList(result.value, emptyLabel);
+  }
+
+  console.warn(
+    `Warning: keeping previous ${label} content because update failed: ${errorMessage(
+      result.reason
+    )}`
+  );
+
+  return fallbackContent || renderList([], emptyLabel);
+}
+
+function errorMessage(error) {
+  return error?.stack || error?.message || String(error);
+}
+
+function extractPreviousContent(readme) {
+  const start = readme.indexOf(START_MARKER);
+  const end = readme.indexOf(END_MARKER);
+
+  if (start === -1 || end === -1 || end < start) {
+    return { releases: "", posts: "" };
+  }
+
+  const block = readme.slice(start, end + END_MARKER.length);
+  const cells = Array.from(
+    block.matchAll(/<td\b[^>]*>\s*([\s\S]*?)\s*<\/td>/gi),
+    (match) => match[1].trim()
+  );
+
+  return {
+    releases: cells[0] || "",
+    posts: cells[1] || "",
+  };
+}
+
+function renderBlock(releaseContent, postContent) {
   return `${START_MARKER}
 <table width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
   <tr>
@@ -249,10 +302,10 @@ function renderBlock(releases, posts) {
   </tr>
   <tr>
     <td valign="top" style="word-break: break-word;">
-${renderList(releases, "No releases found yet.")}
+${releaseContent}
     </td>
     <td valign="top" style="word-break: break-word;">
-${renderList(posts, "No posts found yet.")}
+${postContent}
     </td>
   </tr>
 </table>
