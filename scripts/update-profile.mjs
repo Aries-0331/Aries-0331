@@ -70,6 +70,7 @@ async function loadBookmarkAssistantRelease() {
           version: payloadRelease.version,
           title: payloadRelease.rawTitle,
           summary: payloadRelease.summary,
+          url: payloadRelease.url,
           published_at: payloadRelease.sortDate,
         },
         null,
@@ -112,13 +113,19 @@ function parseBookmarkAssistantRelease(value) {
   const summary = cleanText(payload.summary);
   const publishedAt =
     cleanText(payload.published_at) || new Date().toISOString();
+  const url =
+    cleanUrl(payload.url) ||
+    `https://github.com/Aries-0331/bookmark-assistant-pro/releases/tag/${encodeURIComponent(
+      version
+    )}`;
 
   return {
     title,
     rawTitle: title,
     summary,
-    url: "",
+    url,
     date: formatDate(publishedAt),
+    hideSummary: true,
     sortDate: publishedAt,
     version,
   };
@@ -407,7 +414,7 @@ function renderList(items, emptyLabel = "No items found yet.") {
     const titleHtml = item.url
       ? `<a href="${escapeHtml(item.url)}">${escapeHtml(title)}</a>`
       : escapeHtml(title);
-    const summary = item.summary
+    const summary = item.summary && !item.hideSummary
       ? `: ${escapeHtml(truncateMiddle(item.summary, 92))}`
       : "";
     const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
@@ -452,6 +459,14 @@ function escapeHtml(value) {
 
 function cleanText(value) {
   return sanitizePublicText(String(value || "").replace(/\s+/g, " ").trim());
+}
+
+function cleanUrl(value) {
+  const text = String(value || "").trim();
+  if (!/^https:\/\/github\.com\/Aries-0331\/bookmark-assistant-pro\/releases\/tag\/v\d+\.\d+\.\d+(?:[-+][\w.-]+)?$/i.test(text)) {
+    return "";
+  }
+  return text;
 }
 
 function sanitizePublicText(value) {
