@@ -1,5 +1,5 @@
-import { readFile, writeFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const README_PATH = process.env.README_PATH
@@ -11,18 +11,22 @@ const END_MARKER = "<!-- PROFILE_ACTIVITY:END -->";
 const config = {
   releaseRepos: parseReleaseRepos(
     process.env.RELEASE_REPOS ||
-      "Aries-0331/x-toc,Aries-0331/bookmark-assistant"
+      "Aries-0331/x-toc"
   ),
   blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.cn/rss.xml",
   postLimit: Number(process.env.POST_LIMIT || 6),
   titleMaxLength: Number(process.env.TITLE_MAX_LENGTH || 38),
   githubApiBaseUrl: process.env.GITHUB_API_BASE_URL || "https://api.github.com",
+  bookmarkAssistantReleasePath: resolve(
+    process.env.BOOKMARK_ASSISTANT_RELEASE_PATH ||
+      "data/bookmark-assistant-release.json"
+  ),
 };
 
 const token = process.env.GITHUB_TOKEN;
-
 const readme = await readFile(README_PATH, "utf8");
 const previousContent = extractPreviousContent(readme);
+const bookmarkAssistantRelease = await loadBookmarkAssistantRelease();
 
 const [releaseResult, postResult] = await Promise.allSettled([
   getReleases(config.releaseRepos, config.githubApiBaseUrl),
@@ -33,7 +37,8 @@ const releaseContent = contentFromResult(
   "releases",
   releaseResult,
   "No releases found yet.",
-  previousContent.releases
+  previousContent.releases,
+  bookmarkAssistantRelease ? [bookmarkAssistantRelease] : []
 );
 const postContent = contentFromResult(
   "posts",
@@ -47,6 +52,76 @@ const nextReadme = replaceBlock(readme, block);
 
 if (nextReadme !== readme) {
   await writeFile(README_PATH, nextReadme);
+}
+
+async function loadBookmarkAssistantRelease() {
+  const payloadRelease = parseBookmarkAssistantRelease(
+    process.env.BOOKMARK_ASSISTANT_RELEASE_PAYLOAD
+  );
+
+  if (payloadRelease) {
+    await mkdir(dirname(config.bookmarkAssistantReleasePath), {
+      recursive: true,
+    });
+    await writeFile(
+      config.bookmarkAssistantReleasePath,
+      `${JSON.stringify(
+        {
+          version: payloadRelease.version,
+          title: payloadRelease.rawTitle,
+          summary: payloadRelease.summary,
+          published_at: payloadRelease.sortDate,
+        },
+        null,
+        2
+      )}\n`
+    );
+    return payloadRelease;
+  }
+
+  try {
+    const raw = await readFile(config.bookmarkAssistantReleasePath, "utf8");
+    return parseBookmarkAssistantRelease(raw);
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
+}
+
+function parseBookmarkAssistantRelease(value) {
+  const text = String(value || "").trim();
+  if (!text || text === "null" || text === "{}") {
+    return null;
+  }
+
+  let payload;
+  try {
+    payload = JSON.parse(text);
+  } catch {
+    return null;
+  }
+
+  const version = cleanText(payload.version);
+  if (!version) {
+    return null;
+  }
+
+  const title = cleanText(payload.title) || `Bookmark Assistant ${version}`;
+  const summary = cleanText(payload.summary);
+  const publishedAt =
+    cleanText(payload.published_at) || new Date().toISOString();
+
+  return {
+    title,
+    rawTitle: title,
+    summary,
+    url: "",
+    date: formatDate(publishedAt),
+    sortDate: publishedAt,
+    version,
+  };
 }
 
 function parseReleaseRepos(value) {
@@ -255,9 +330,15 @@ function compareSemver(a, b) {
   return 0;
 }
 
-function contentFromResult(label, result, emptyLabel, fallbackContent) {
+function contentFromResult(
+  label,
+  result,
+  emptyLabel,
+  fallbackContent,
+  extraItems = []
+) {
   if (result.status === "fulfilled") {
-    return renderList(result.value, emptyLabel);
+    return renderList(sortItems([...extraItems, ...result.value]), emptyLabel);
   }
 
   console.warn(
@@ -265,6 +346,10 @@ function contentFromResult(label, result, emptyLabel, fallbackContent) {
       result.reason
     )}`
   );
+
+  if (extraItems.length > 0) {
+    return renderList(extraItems, emptyLabel);
+  }
 
   return fallbackContent || renderList([], emptyLabel);
 }
@@ -318,14 +403,22 @@ function renderList(items, emptyLabel = "No items found yet.") {
   }
 
   const lines = items.map((item) => {
-    const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
     const title = truncateMiddle(item.title, config.titleMaxLength);
-    return `• <a href="${escapeHtml(item.url)}">${escapeHtml(
-      title
-    )}</a>${suffix}`;
+    const titleHtml = item.url
+      ? `<a href="${escapeHtml(item.url)}">${escapeHtml(title)}</a>`
+      : escapeHtml(title);
+    const summary = item.summary
+      ? `: ${escapeHtml(truncateMiddle(item.summary, 92))}`
+      : "";
+    const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
+    return `• ${titleHtml}${summary}${suffix}`;
   });
 
   return lines.join("<br>");
+}
+
+function sortItems(items) {
+  return items.sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate));
 }
 
 function truncateMiddle(value, maxLength) {
@@ -355,6 +448,10 @@ function escapeHtml(value) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function cleanText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
 }
 
 function replaceBlock(readme, block) {
