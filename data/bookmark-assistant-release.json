@@ -1,7 +1,7 @@
 {
-  "version": "v1.0.23",
-  "title": "Bookmark Assistant v1.0.23",
-  "summary": "Patch release for Notion OAuth template duplication reliability and Vercel server build stability.",
-  "url": "https://github.com/Aries-0331/bookmark-assistant-pro/releases/tag/v1.0.23",
-  "published_at": "2026-07-07T14:53:11Z"
+  "version": "v1.1.0",
+  "title": "Bookmark Assistant Pro 1.1.0",
+  "summary": "Bookmark Assistant product release.",
+  "url": "https://github.com/Aries-0331/bookmark-assistant-pro/releases/tag/v1.1.0",
+  "published_at": "2026-07-13T13:29:29Z"
 }
