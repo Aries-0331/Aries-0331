@@ -19,7 +19,7 @@ Feel free to get in touch. **Sitting too long hurts. Time to get moving.**
   </tr>
   <tr>
     <td valign="top" style="word-break: break-word;">
-• <a href="https://github.com/Aries-0331/bookmark-assistant-pro/releases/tag/v1.2.1">Bookmark Assistant v1.2.1</a> - 2026-07-22<br>• <a href="https://github.com/Aries-0331/x-toc/releases/tag/v0.4.7">x-toc X-TOC v0.4.7</a> - 2026-06-17
+• <a href="https://github.com/Aries-0331/bookmark-assistant-pro/releases/tag/v1.2.2">Bookmark Assistant v1.2.2</a> - 2026-08-19<br>• <a href="https://github.com/Aries-0331/x-toc/releases/tag/v0.4.7">x-toc X-TOC v0.4.7</a> - 2026-06-17
     </td>
     <td valign="top" style="word-break: break-word;">
 No posts found yet.
