@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_REPOS: Aries-0331/x-toc
           BOOKMARK_ASSISTANT_RELEASE_PAYLOAD: ${{ toJson(github.event.client_payload) }}
-          BLOG_FEED_URL: https://www.arieszhou.cn/rss.xml
+          BLOG_FEED_URL: https://www.arieszhou.com/rss.xml
           POST_LIMIT: 6
           TITLE_MAX_LENGTH: 38
 

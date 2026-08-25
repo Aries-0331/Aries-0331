@@ -11,15 +11,15 @@ const END_MARKER = "<!-- PROFILE_ACTIVITY:END -->";
 const config = {
   releaseRepos: parseReleaseRepos(
     process.env.RELEASE_REPOS ||
-      "Aries-0331/x-toc"
+    "Aries-0331/x-toc"
   ),
-  blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.cn/rss.xml",
+  blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.com/rss.xml",
   postLimit: Number(process.env.POST_LIMIT || 6),
   titleMaxLength: Number(process.env.TITLE_MAX_LENGTH || 38),
   githubApiBaseUrl: process.env.GITHUB_API_BASE_URL || "https://api.github.com",
   bookmarkAssistantReleasePath: resolve(
     process.env.BOOKMARK_ASSISTANT_RELEASE_PATH ||
-      "data/bookmark-assistant-release.json"
+    "data/bookmark-assistant-release.json"
   ),
 };
 
