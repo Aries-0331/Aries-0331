@@ -24,6 +24,11 @@ const config = {
 };
 
 const token = process.env.GITHUB_TOKEN;
+const releaseNames = {
+  litecontext: "LiteContext",
+  "x-toc": "X-TOC",
+  "bookmark-assistant": "Bookmark Assistant",
+};
 const readme = await readFile(README_PATH, "utf8");
 const previousContent = extractPreviousContent(readme);
 const bookmarkAssistantRelease = await loadBookmarkAssistantRelease();
@@ -68,8 +73,7 @@ async function loadBookmarkAssistantRelease() {
       `${JSON.stringify(
         {
           version: payloadRelease.version,
-          title: payloadRelease.rawTitle,
-          summary: payloadRelease.summary,
+          url: payloadRelease.url,
           published_at: payloadRelease.sortDate,
         },
         null,
@@ -108,19 +112,15 @@ function parseBookmarkAssistantRelease(value) {
     return null;
   }
 
-  const title = cleanText(payload.title) || `Bookmark Assistant ${version}`;
-  const summary = cleanText(payload.summary);
   const publishedAt =
     cleanText(payload.published_at) || new Date().toISOString();
 
   return {
-    title,
-    rawTitle: title,
-    summary,
-    url: "",
+    name: releaseNames["bookmark-assistant"],
+    version,
+    url: publicUrl(payload.url) || "https://bookmarkassistant.com",
     date: formatDate(publishedAt),
     sortDate: publishedAt,
-    version,
   };
 }
 
@@ -171,7 +171,8 @@ async function getReleases(repos, githubApiBaseUrl) {
       }
 
       return {
-        title: `${repo} ${latestRelease.name || latestRelease.tag_name}`,
+        name: releaseNames[repo] || toDisplayName(repo),
+        version: releaseLabel(latestRelease),
         url: latestRelease.html_url,
         date: formatDate(
           latestRelease.published_at || latestRelease.created_at
@@ -403,18 +404,35 @@ function renderList(items, emptyLabel = "No items found yet.") {
   }
 
   const lines = items.map((item) => {
-    const title = truncateMiddle(item.title, config.titleMaxLength);
-    const titleHtml = item.url
-      ? `<a href="${escapeHtml(item.url)}">${escapeHtml(title)}</a>`
-      : escapeHtml(title);
-    const summary = item.summary && !item.hideSummary
-      ? `: ${escapeHtml(truncateMiddle(item.summary, 92))}`
-      : "";
+    const name = truncateMiddle(item.name || item.title, config.titleMaxLength);
+    const nameHtml = item.url
+      ? `<a href="${escapeHtml(item.url)}">${escapeHtml(name)}</a>`
+      : escapeHtml(name);
+    const version = item.version ? ` ${escapeHtml(item.version)}` : "";
     const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
-    return `• ${titleHtml}${summary}${suffix}`;
+    return `• ${nameHtml}${version}${suffix}`;
   });
 
   return lines.join("<br>");
+}
+
+function releaseLabel(release) {
+  const version = String(release.tag_name || "").trim();
+  if (version) {
+    return version.startsWith("v") ? version : `v${version}`;
+  }
+
+  const name = String(release.name || "").trim();
+  const match = name.match(/v?\d+\.\d+\.\d+(?:[-+][\w.-]+)?/i);
+  return match ? (match[0].startsWith("v") ? match[0] : `v${match[0]}`) : name;
+}
+
+function toDisplayName(value) {
+  return value
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
 function sortItems(items) {
@@ -452,6 +470,15 @@ function escapeHtml(value) {
 
 function cleanText(value) {
   return sanitizePublicText(String(value || "").replace(/\s+/g, " ").trim());
+}
+
+function publicUrl(value) {
+  try {
+    const url = new URL(String(value || "").trim());
+    return ["http:", "https:"].includes(url.protocol) ? url.toString() : "";
+  } catch {
+    return "";
+  }
 }
 
 function sanitizePublicText(value) {
