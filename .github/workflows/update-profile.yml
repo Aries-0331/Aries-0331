@@ -26,7 +26,7 @@ jobs:
         run: node scripts/update-profile.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RELEASE_REPOS: Aries-0331/x-toc
+          RELEASE_REPOS: Aries-0331/x-toc,Aries-0331/litecontext
           BOOKMARK_ASSISTANT_RELEASE_PAYLOAD: ${{ toJson(github.event.client_payload) }}
           BLOG_FEED_URL: https://www.arieszhou.com/rss.xml
           POST_LIMIT: 6
