@@ -11,7 +11,7 @@ const END_MARKER = "<!-- PROFILE_ACTIVITY:END -->";
 const config = {
   releaseRepos: parseReleaseRepos(
     process.env.RELEASE_REPOS ||
-    "Aries-0331/x-toc,Aries-0331/litecontext"
+    "HiAriesZhou/x-toc,HiAriesZhou/litecontext"
   ),
   blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.com/rss.xml",
   postLimit: Number(process.env.POST_LIMIT || 6),
