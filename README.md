@@ -1,29 +1,33 @@
-### Hi there👋
+### Hi, I'm Aries 👋
 
-It's Aries. A software engineer building small tools around developer productivity, browser extensions, AI workflows, and personal knowledge management.
+Most of my projects start with something that keeps bothering me.
 
-Recently exploring AI-assisted development workflows, browser extensions for better reading experience on web and lightweight knowledge tools for individuals and small teams.
+X articles were hard to navigate, so I made [X-TOC](https://github.com/HiAriesZhou/x-toc). My browser links kept piling up, so I made [Bookmark Assistant](https://bookmarkassistant.com/). AI agents kept forgetting how a project got here, so now I'm working on [LiteContext](https://litecontext.dev/).
 
-I believe good software should be simple, useful, and calm.
+I write about what I learn along the way, plus the occasional badminton note.
 
-I believe less is more and fast is slow.
+Software engineer. Gamer. Dad. Staff to two cats.
 
-Feel free to get in touch. **Sitting too long hurts. Time to get moving.**
+[Home](https://arieszhou.com/) · [X](https://x.com/AriesBlabla)
 
 
 <!-- PROFILE_ACTIVITY:START -->
-<table width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-  <tr>
-    <th width="600px" align="left">Latest Releases</th>
-    <th width="600px" align="left">Recent Posts</th>
-  </tr>
-  <tr>
-    <td valign="top" style="word-break: break-word;">
-• <a href="https://bookmarkassistant.com/">Bookmark Assistant</a> v1.3.0 - 2026-08-25<br>• <a href="https://github.com/HiAriesZhou/x-toc/releases/tag/v0.4.7">X-TOC</a> v0.4.7 - 2026-06-17<br>• undefined
-    </td>
-    <td valign="top" style="word-break: break-word;">
-• <a href="https://www.arieszhou.cn/zh/blog/ai-%E5%90%AC%E4%B8%8D%E6%87%82%E4%B9%8B%E5%89%8D%E9%82%A3%E4%B8%AA">AI 听不懂「之前那个」</a> - 2026-08-28<br>• <a href="https://www.arieszhou.cn/zh/blog/readme-landingpage">README? LandingPage</a> - 2026-08-25<br>• <a href="https://www.arieszhou.cn/zh/blog/%E5%8D%95%E6%89%93">单打</a> - 2026-08-05<br>• <a href="https://www.arieszhou.cn/zh/blog/%E4%BB%8E-clashx-%E5%88%B0-clash-verge%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BD%91%E9%A1%B5%E6%AD%A3%E5%B8%B8codex-%E5%8D%B4%E6%97%A0%E6%B3%95%E8%81%94%E7%BD%91">从 ClashX 到 Clash V...么网页正常，Codex 却无法联网</a> - 2026-07-14<br>• <a href="https://www.arieszhou.cn/zh/blog/mit%E6%8E%88%E6%9D%83%E7%9A%84%E6%98%AF%E4%BB%A3%E7%A0%81%E4%B8%8D%E6%98%AF%E4%BA%A7%E5%93%81">MIT 授权的是代码，不是整个产品</a> - 2026-06-11<br>• <a href="https://www.arieszhou.cn/zh/blog/%E4%BB%8E-nextjs-%E5%88%B0-astro">从 Next.js 到 Astro</a> - 2026-04-14
-    </td>
-  </tr>
-</table>
+### Latest releases
+
+<!-- PROFILE_RELEASES:START -->
+<ul>
+  <li><a href="https://bookmarkassistant.com/">Bookmark Assistant</a> v1.3.0 · 2026-08-25</li>
+  <li><a href="https://github.com/HiAriesZhou/x-toc/releases/tag/v0.4.7">X-TOC</a> v0.4.7 · 2026-06-17</li>
+</ul>
+<!-- PROFILE_RELEASES:END -->
+
+### Recent writing
+
+<!-- PROFILE_POSTS:START -->
+<ul>
+  <li><a href="https://arieszhou.com/blog/ai-doesnt-understand-that-earlier-one">AI Doesn't Understand &quot;That Earlier One&quot;</a> · 2026-08-28</li>
+  <li><a href="https://arieszhou.com/blog/readme-landingpage-guide">README? LandingPage</a> · 2026-08-25</li>
+  <li><a href="https://arieszhou.com/blog/singles">Singles</a> · 2026-08-05</li>
+</ul>
+<!-- PROFILE_POSTS:END -->
 <!-- PROFILE_ACTIVITY:END -->

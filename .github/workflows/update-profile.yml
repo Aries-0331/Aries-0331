@@ -28,9 +28,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_REPOS: HiAriesZhou/x-toc,HiAriesZhou/litecontext
           BOOKMARK_ASSISTANT_RELEASE_PAYLOAD: ${{ toJson(github.event.client_payload) }}
-          BLOG_FEED_URL: https://www.arieszhou.com/rss.xml
-          POST_LIMIT: 6
-          TITLE_MAX_LENGTH: 38
+          BLOG_FEED_URL: https://arieszhou.com/rss.en.xml
+          POST_LIMIT: 3
+          TITLE_MAX_LENGTH: 60
 
       - name: Commit changes
         run: |

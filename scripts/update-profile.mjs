@@ -13,9 +13,10 @@ const config = {
     process.env.RELEASE_REPOS ||
     "HiAriesZhou/x-toc,HiAriesZhou/litecontext"
   ),
-  blogFeedUrl: process.env.BLOG_FEED_URL || "https://www.arieszhou.com/rss.xml",
-  postLimit: Number(process.env.POST_LIMIT || 6),
-  titleMaxLength: Number(process.env.TITLE_MAX_LENGTH || 38),
+  blogFeedUrl:
+    process.env.BLOG_FEED_URL || "https://arieszhou.com/rss.en.xml",
+  postLimit: Number(process.env.POST_LIMIT || 3),
+  titleMaxLength: Number(process.env.TITLE_MAX_LENGTH || 60),
   githubApiBaseUrl: process.env.GITHUB_API_BASE_URL || "https://api.github.com",
   bookmarkAssistantReleasePath: resolve(
     process.env.BOOKMARK_ASSISTANT_RELEASE_PATH ||
@@ -183,6 +184,7 @@ async function getReleases(repos, githubApiBaseUrl) {
   );
 
   return releases
+    .flat()
     .filter(Boolean)
     .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate));
 }
@@ -222,7 +224,7 @@ async function getPosts(feedUrl, limit) {
 
       return {
         title,
-        url,
+        url: normalizeBlogUrl(url),
         date: formatDate(rawDate),
         sortDate: rawDate || "",
       };
@@ -265,6 +267,7 @@ function decodeXml(value) {
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
     .replace(/&#39;/g, "'");
 }
 
@@ -368,6 +371,21 @@ function extractPreviousContent(readme) {
   }
 
   const block = readme.slice(start, end + END_MARKER.length);
+  const releaseContent = extractMarkedContent(
+    block,
+    "PROFILE_RELEASES:START",
+    "PROFILE_RELEASES:END"
+  );
+  const postContent = extractMarkedContent(
+    block,
+    "PROFILE_POSTS:START",
+    "PROFILE_POSTS:END"
+  );
+
+  if (releaseContent || postContent) {
+    return { releases: releaseContent, posts: postContent };
+  }
+
   const cells = Array.from(
     block.matchAll(/<td\b[^>]*>\s*([\s\S]*?)\s*<\/td>/gi),
     (match) => match[1].trim()
@@ -379,22 +397,32 @@ function extractPreviousContent(readme) {
   };
 }
 
+function extractMarkedContent(block, startMarker, endMarker) {
+  const start = block.indexOf(`<!-- ${startMarker} -->`);
+  const end = block.indexOf(`<!-- ${endMarker} -->`);
+
+  if (start === -1 || end === -1 || end < start) {
+    return "";
+  }
+
+  return block
+    .slice(start + `<!-- ${startMarker} -->`.length, end)
+    .trim();
+}
+
 function renderBlock(releaseContent, postContent) {
   return `${START_MARKER}
-<table width="100%" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
-  <tr>
-    <th width="600px" align="left">Latest Releases</th>
-    <th width="600px" align="left">Recent Posts</th>
-  </tr>
-  <tr>
-    <td valign="top" style="word-break: break-word;">
+### Latest releases
+
+<!-- PROFILE_RELEASES:START -->
 ${releaseContent}
-    </td>
-    <td valign="top" style="word-break: break-word;">
+<!-- PROFILE_RELEASES:END -->
+
+### Recent writing
+
+<!-- PROFILE_POSTS:START -->
 ${postContent}
-    </td>
-  </tr>
-</table>
+<!-- PROFILE_POSTS:END -->
 ${END_MARKER}`;
 }
 
@@ -409,11 +437,11 @@ function renderList(items, emptyLabel = "No items found yet.") {
       ? `<a href="${escapeHtml(item.url)}">${escapeHtml(name)}</a>`
       : escapeHtml(name);
     const version = item.version ? ` ${escapeHtml(item.version)}` : "";
-    const suffix = item.date ? ` - ${escapeHtml(item.date)}` : "";
-    return `• ${nameHtml}${version}${suffix}`;
+    const suffix = item.date ? ` · ${escapeHtml(item.date)}` : "";
+    return `  <li>${nameHtml}${version}${suffix}</li>`;
   });
 
-  return lines.join("<br>");
+  return `<ul>\n${lines.join("\n")}\n</ul>`;
 }
 
 function releaseLabel(release) {
@@ -479,6 +507,23 @@ function publicUrl(value) {
   } catch {
     return "";
   }
+}
+
+function normalizeBlogUrl(value) {
+  const url = publicUrl(value);
+  if (!url) {
+    return "";
+  }
+
+  const parsed = new URL(url);
+  if (
+    parsed.hostname === "arieszhou.cn" ||
+    parsed.hostname === "www.arieszhou.cn"
+  ) {
+    parsed.hostname = "arieszhou.com";
+  }
+
+  return parsed.toString();
 }
 
 function sanitizePublicText(value) {
